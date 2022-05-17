@@ -1,0 +1,46 @@
+## YAML Template.
+---
+jdbcUserInputRepository:
+  findByIDAndLeftRight:
+    sql: 'select id, type, content from UserInput where id=? and type=?'
+  findByID:
+    sql: 'select id, type, content from UserInput where id=?'
+  save:
+    updateSql: 'update UserInput set content = ? where id = ? and type = ?'
+    insertSql: 'insert into UserInput (id, type, content) values (?, ?, ?)'
+    exceptionalMessage: ''
+  mapRowToUserInpur:
+    column:
+        id: 'id'
+        type: 'type'
+        content: 'content'
+  
+ComparingStrategies:
+    SizeComparingStrategy:
+        responseMessage:
+            diffResultType: 'diffResultType'
+            SizeDoNotMatch: 'SizeDoNotMatch'
+    SameContentComparingSrategy:
+        responseMessage:
+            diffResultType: 'diffResultType'
+            Equals: 'Equals'
+    FindDifferentComparingStrategy:
+        responseMessage:
+            diffResultType: 'diffResultType'
+            ContentDoNotMatch: 'ContentDoNotMatch'
+            offset: 'offset'
+            length: 'length'
+            diffs: 'diffs'
+UserInput:
+    Validator:
+        message:
+            idNotBlank: ""
+            idSize: ""
+            typeNotBlank: ""
+            typeSize: ""
+            contentNotBlank: ""
+            contentSize: ""
+mock:
+    test:
+        result:
+            behavior: "behavior"
