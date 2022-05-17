@@ -1,6 +1,8 @@
 # diff_application
+
 1. About the application
- This application is a spring-boot application using an in-memory database. 
+ Job intereview -- coding assessment. 
+ This application is a spring-boot application using an in-memory database.
  Also, the application uses an embedded application server (Tomcat).
 
 
